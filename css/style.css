@@ -4,3 +4,10 @@ body {
   background-attachment: fixed;
   background-position: center;
 }
+
+h1 {
+  font-size: 40px;
+  font-family: Helvetica;
+  color: white;
+  text-align: center;
+}
