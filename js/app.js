@@ -3,6 +3,7 @@ var player1Array;
 var guesses = [];
 var player2Guess = [];
 var livesLeft = 0;
+var lettersTried = [];
 
 function wordPrompt(){
   // this takes the word input by player1 from the prompt and stores it as player1Word
@@ -77,8 +78,11 @@ function checkForMatch(){
   }
   if (letterMatch == false) {
     livesLeft = livesLeft -1;
-    console.log(livesLeft);
+    //console.log(livesLeft);
+    lettersTried.push(player2Guess);
     drawLives();
+    alreadyUsed();
+    console.log('letter used');
   }
   checkForWin();
   checkForLose();
@@ -99,6 +103,10 @@ function checkForWin(){
 function checkForLose(){
   if (livesLeft == 0)
     alert("You lose!");
+}
+
+function alreadyUsed(){
+  document.getElementById("lettersTried").innerText = "Letters already used: " + lettersTried;
 }
 
 //for score it might actually be better to write a for loop which takes the number
