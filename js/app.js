@@ -13,6 +13,7 @@ function wordPrompt(){
   //console.log(player1Array.length);
   createBoard();
   updateBoard();
+  livesRemaining();
   updateLives();
 }
 
@@ -21,6 +22,10 @@ function createBoard(){
     guesses.push("_");
   }
   //console.log(guesses);
+}
+
+function livesRemaining(){
+  livesLeft = player1Array.length -1;
 }
 
 function updateLives(){
