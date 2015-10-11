@@ -47,7 +47,7 @@ function drawBoard(){
 }
 
   // player2Guess is called by the html button called guessButton, and takes the
-function guessMade(){
+  function guessMade(){
   // value in the html element guessText
   player2Guess = document.getElementById("guessText").value;
   //console.log("Guess: " + player2Guess);
@@ -70,9 +70,10 @@ function checkForMatch(){
       // assigns the match from player1Array into the same place in the variable guesses
       guesses[i] = player1Array[i];
       drawBoard();
-      console.log(guesses);
+      //console.log(guesses);
     }
   }
+  checkForWin();
 }
 
 function noMatch(){
@@ -81,8 +82,15 @@ function noMatch(){
 }
 
 function checkForWin(){
-  //check to see if player2 has the same number of matches to letters stored
-  //in player1's word - if yes, they have won & score is incremented
+  // check to see if player2 has the same number of matches to letters stored
+  // in player1's word - if yes, they have won & score is incremented
+  for (var i = 0; i < player1Array.length; i++) {
+    if (guesses[i] == "_")
+      return false;
+  }
+  console.log("you've won you clever thing!");
+  alert("You win!");
+  return true;
 }
 
 function checkForLose(){
