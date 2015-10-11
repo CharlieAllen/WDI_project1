@@ -2,7 +2,6 @@ var player1Word;
 var player1Array;
 var guesses = [];
 var player2Guess = [];
-var guessesRemaining;
 var livesLeft = 0;
 
 function wordPrompt(){
@@ -61,24 +60,28 @@ function drawBoard(){
 
 
 function checkForMatch(){
+  var letterMatch = false;
   //console.log("check for match works");
   // for checks the letter against all of those in player1Array
   for (var i = 0; i < player1Array.length; i +=1){
-    console.log(player2Guess + " " + player1Array[i]);
+    //console.log(player2Guess + " " + player1Array[i]);
     // the current letter in player1Array is compared to player2Guess
     if (player2Guess == player1Array[i]) {
       // assigns the match from player1Array into the same place in the variable guesses
       guesses[i] = player1Array[i];
+      // we now know that a letter has been matched so this will be recorded
+      letterMatch = true;
       drawBoard();
       //console.log(guesses);
     }
   }
+  if (letterMatch == false) {
+    livesLeft = livesLeft -1;
+    console.log(livesLeft);
+    drawLives();
+  }
   checkForWin();
-}
-
-function noMatch(){
-  //if player2's guess doesn't match any of the stored letters, 
-  //reveal a square on the grid, increment score -1, stop at 0
+  checkForLose();
 }
 
 function checkForWin(){
@@ -88,14 +91,14 @@ function checkForWin(){
     if (guesses[i] == "_")
       return false;
   }
-  console.log("you've won you clever thing!");
+  //console.log("you've won you clever thing!");
   alert("You win!");
   return true;
 }
 
 function checkForLose(){
-  //check to see if all squares are uncovered, if so player1 wins, their score
-  //is incremented
+  if (livesLeft == 0)
+    alert("You lose!");
 }
 
 //for score it might actually be better to write a for loop which takes the number
