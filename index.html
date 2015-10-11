@@ -7,10 +7,16 @@
   <script type="text/javascript" src="./js/app.js"></script>
 </head>
 <body>
-<h1>Guess the word.</h1>
-<form>
-<input type="button" value="Click here to start the game" onclick="wordPrompt();" />
-</form>
-<p class="letters" id="gameLetters">HANGMAN</p>
+  <h1>Guess the word.</h1>
+  <form>
+    <input type="button" value="Click here to start the game" onclick="wordPrompt();" />
+  </form>
+  <p class="letters" id="gameLetters">HANGMAN</p>
+
+  <form class="guessForm">
+  <input type="text" id="guessText" maxlength="1"  placeholder="Enter your guess"/> 
+  <button type="button" id="guessButton" onclick="guessMade();">Submit</button>
+ </form> 
+
 </body>
 </html>

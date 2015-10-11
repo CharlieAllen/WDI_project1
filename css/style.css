@@ -16,4 +16,6 @@ h1 {
   display: inline;
   list-style-type: none;
   font-size: 80px;
+  font-family: Helvetica;
+  color: white;
 }
