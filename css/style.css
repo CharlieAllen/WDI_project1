@@ -1,33 +1,62 @@
 body {
-  background-image: url("./hangman_background.jpg");
+  background-image: url("./wallpaper.jpg");
+  background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
 }
 
 h1 {
-  font-size: 40px;
-  font-family: Helvetica;
+  font-size: 45px;
+  font-family: Verdana;
   color: white;
   text-align: center;
 }
 
-.letters {
+#gameLetters {
   display: inline;
   list-style-type: none;
   font-size: 80px;
-  font-family: Helvetica;
+  font-family: Verdana;
   color: white;
 }
 
-#counter {
-  font-family: Helvetica;
+#startButton {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 200px;
+}
+
+#lettersUsed {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: Verdana;
   font-size: 40px;
   color: white;
 }
 
-#lettersTried {
-  font-family: Helvetica;
+#submitGuesses {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#counter {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: Verdana;
+  font-size: 40px;
+  color: white;
+}
+
+#tried {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: Verdana;
   font-size: 40px;
   color: white;
 }
