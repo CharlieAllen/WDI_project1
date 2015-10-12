@@ -8,6 +8,7 @@ $(function(){
   var lettersTried = [];
   var start = document.getElementById("gameStart");
   start.addEventListener('click', wordPrompt);
+  var isGameFinished = false;
 
   $('form').on('submit', function(event) {
     handleForm(event);
@@ -56,19 +57,22 @@ $(function(){
   }
 
   function checkForMatch(){
-    console.log(player1Array.indexOf(player2Guess), player1Array, player2Guess);
+    if (isGameFinished == true){
+      alert("The game is over");
+      return;
+    }
+    //console.log(player1Array.indexOf(player2Guess), player1Array, player2Guess);
     if(player1Array.indexOf(player2Guess) !== -1) {
 
       for (var i = 0; i < player1Array.length; i++){
         if (player2Guess == player1Array[i]) {
           guesses[i] = player1Array[i];
           letterMatch = true;
-          checkForWin();
           drawBoard();
+          checkForWin();
         }
       }
     } else {
-      console.log("NO MATCH");
       livesLeft = livesLeft -1;
       drawLives();
       alreadyUsed();
@@ -81,13 +85,18 @@ $(function(){
       if (guesses[i] == "_")
         return false;
     }
+    isGameFinished = true;
     alert("You win!");
+    document.getElementById("gameRestart").style.visibility = "visible";
     return true;
   }
 
   function checkForLose(){
-    if (livesLeft == 0)
+    if (livesLeft == 0) {
+      isGameFinished = true;
       alert("You lose!");
+      document.getElementById("gameRestart").style.visibility = "visible";
+    }
   }
 
   function alreadyUsed(){
@@ -97,6 +106,16 @@ $(function(){
   $('button').on("click", function(event){
       handleForm(event);
   });
+
+  document.getElementById("gameRestart").style.visibility = "hidden";
+
+  document.getElementById("gameRestart").addEventListener('click', gameRestart);
+
+  function gameRestart(){
+    location.reload();
+    console.log("gamerestart firing");
+  }
+
 });
 
 
