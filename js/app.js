@@ -21,6 +21,7 @@ $(function(){
   $("#newWordForm").hide();
   $("#startButton").click(function(){
     $("#newWordForm").show();
+    $("#newWord").focus();
   });
   
 
