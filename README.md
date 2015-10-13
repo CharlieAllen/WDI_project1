@@ -10,7 +10,7 @@ A word game based on hangman. 2015-10-13.
 
 Originally it was intended for there to be a losing image with a grid of squares overlaying it which would incrementally become revealed as Player 2 made wrong choices.  This idea was abandoned primarily because the grid would have had a fixed number of squares and if Player 1 chose a short word the large number of lives the grid provided could have given Player 2 an unfair advantage.
 
-There is 
+
 
 
 
