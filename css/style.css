@@ -13,21 +13,37 @@ h1 {
   font-family: Verdana;
   color: white;
   text-align: center;
+  text-shadow: 3px 3px 5px rgba(56, 34, 80, 1);
 }
 
 #gameLetters {
+  margin-top: -20px;
   display: inline;
   list-style-type: none;
-  font-size: 80px;
+  font-size: 70px;
   font-family: Verdana;
   color: white;
 }
 
-#startButton {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  width: 200px;
+#gameStart, #guessButton {
+  font-family: Verdana;
+  color: rgb(230, 230, 230);
+  font-size: 15px;
+  padding: 12px;
+  text-shadow: 0px -1px 0px rgba(30, 30, 30, 0.8);
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  background: rgb(128, 82, 108);
+  background: -moz-linear-gradient(90deg, rgb(128, 82, 108) 30%, rgb(56, 34, 80) 100%);
+  background: -webkit-linear-gradient(90deg, rgb(128, 82, 108) 30%, rgb(56, 34, 80) 100%);
+  background: -o-linear-gradient(90deg, rgb(128, 82, 108) 30%, rgb(56, 34, 80) 100%);
+  background: -ms-linear-gradient(90deg, rgb(128, 82, 108) 30%, rgb(56, 34, 80) 100%);
+  background: linear-gradient(0deg, rgb(128, 82, 108) 30%, rgb(56, 34, 80) 100%);
+  -webkit-box-shadow: 0px 2px 1px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    0px 2px 1px rgba(50, 50, 50, 0.75);
+  box-shadow:         0px 2px 1px rgba(50, 50, 50, 0.75);
+
 }
 
 #newWord {
@@ -39,15 +55,6 @@ h1 {
   width: 200px;
 }
 
-#lettersUsed {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  font-family: Verdana;
-  font-size: 40px;
-  color: white;
-}
-
 #submitGuesses {
   margin-left: auto;
   margin-right: auto;
@@ -56,22 +63,30 @@ h1 {
   text-align: center;
 }
 
-#counter {
+#counter, #tried, #lettersUsed {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   font-family: Verdana;
   font-size: 40px;
   color: white;
+}
+
+#rules {
+  font-family: Verdana;
+  font-size: 15px;
+  color: white;
+  text-align: center;
+  text-shadow: 3px 3px 5px rgba(56, 34, 80, 1);
+}
+
+#guessText, #newWord {
+  font-family: Verdana;
+  width: 200px;
+  height: 30px;
 }
 
 #tried {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  font-family: Verdana;
-  font-size: 40px;
-  color: white;
+  margin-top: -10px;
 }
-
 
