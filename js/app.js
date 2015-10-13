@@ -7,12 +7,22 @@ $(function(){
   var livesLeft = 0;
   var lettersTried = [];
   var start = document.getElementById("gameStart");
-  start.addEventListener('click', wordPrompt);
   var isGameFinished = false;
 
-  $('form').on('submit', function(event) {
+  $('form#newWordForm').on('submit', function(event) {
+    event.preventDefault();
+    wordPrompt();
+  });
+
+  $('form.guessForm').on('submit', function(event) {
     handleForm(event);
   });
+
+  $("#newWordForm").hide();
+  $("#startButton").click(function(){
+    $("#newWordForm").show();
+  });
+  
 
   function handleForm(event) {
     event.preventDefault();
@@ -24,13 +34,9 @@ $(function(){
   }
 
   function wordPrompt(){
-    player1Word = prompt("What is your chosen word, Player One?");
-
-    if(!player1Word) {
-      return;
-    }
-
+    player1Word = document.getElementById("newWord").value;
     player1Array = player1Word.split('');
+    $("#newWordForm").hide();
     createBoard();
     drawBoard();
     setInitialLives();
@@ -61,7 +67,7 @@ $(function(){
       alert("The game is over");
       return;
     }
-    //console.log(player1Array.indexOf(player2Guess), player1Array, player2Guess);
+
     if(player1Array.indexOf(player2Guess) !== -1) {
 
       for (var i = 0; i < player1Array.length; i++){
@@ -87,7 +93,7 @@ $(function(){
     }
     isGameFinished = true;
     alert("You win!");
-    document.getElementById("gameRestart").style.visibility = "visible";
+    gameRestart();
     return true;
   }
 
@@ -95,7 +101,7 @@ $(function(){
     if (livesLeft == 0) {
       isGameFinished = true;
       alert("You lose!");
-      document.getElementById("gameRestart").style.visibility = "visible";
+      gameRestart();
     }
   }
 
@@ -104,16 +110,19 @@ $(function(){
   }
 
   $('button').on("click", function(event){
-      handleForm(event);
+    handleForm(event);
   });
 
-  document.getElementById("gameRestart").style.visibility = "hidden";
-
-  document.getElementById("gameRestart").addEventListener('click', gameRestart);
-
   function gameRestart(){
-    location.reload();
-    console.log("gamerestart firing");
+    player1Word = "";
+    player1Array = [];
+    guesses = [];
+    player2Guess = [];
+    livesLeft = 0;
+    lettersTried = [];
+    document.getElementById("counter").innerHTML = "</br>";
+    document.getElementById("gameLetters").innerHTML = "</br>";
+    document.getElementById("lettersTried").innerText = "";
   }
 
 });

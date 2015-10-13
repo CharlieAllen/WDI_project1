@@ -13,6 +13,11 @@
       <input type="button" id='gameStart' value="Click here to start the game"/>
     </form>
   </div>
+  <div>
+    <form id="newWordForm">
+    <input type="text" id="newWord" placeholder="Your word?"/>
+    </form>
+  </div>
   <div id="lettersUsed"><p class="letters" id="gameLetters"></br></p></div>
   <div id="submitGuesses">
     <form class="guessForm">
@@ -20,16 +25,11 @@
       <button type="button" id="guessButton">Submit</button>
     </form>
   </div>
-  <div id="counter">
-  <p id="counter"></br></p>
+  <div id="counterContainer">
+    <p id="counter"></br></p>
   </div>
   <div id="tried">
-  <p id="lettersTried"></br></p>
-  </div>
-  <div id="resetButton">
-    <form>
-      <input type="submit" id='gameRestart' value="Restart the game"/>
-    </form>
+    <p id="lettersTried"></br></p>
   </div>
 </body>
 </html>
