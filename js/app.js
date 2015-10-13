@@ -19,7 +19,7 @@ $(function(){
   });
 
   $("#newWordForm").hide();
-  $("#startButton").click(function(){
+  $("#startButton").on('click',function(){
     $("#newWordForm").show();
     $("#newWord").focus();
   });
@@ -37,6 +37,7 @@ $(function(){
     player1Word = document.getElementById("newWord").value;
     player1Array = player1Word.split('');
     $("#newWordForm").hide();
+    $("#startButton").off();
     createBoard();
     drawBoard();
     setInitialLives();
@@ -125,6 +126,10 @@ $(function(){
     document.getElementById("gameLetters").innerHTML = "</br>";
     $("#newWord").val("");
     document.getElementById("lettersTried").innerText = "";
+    $("#startButton").on('click',function(){
+      $("#newWordForm").show();
+      $("#newWord").focus();
+    });
   }
 
 });
