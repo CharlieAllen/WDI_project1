@@ -27,7 +27,6 @@ $(function(){
   function handleForm(event) {
     event.preventDefault();
     player2Guess = document.getElementById("guessText").value;
-
     lettersTried.push(player2Guess);
     document.getElementById("guessText").value = "";
     checkForMatch();
@@ -120,8 +119,10 @@ $(function(){
     player2Guess = [];
     livesLeft = 0;
     lettersTried = [];
+    isGameFinished = false;
     document.getElementById("counter").innerHTML = "</br>";
     document.getElementById("gameLetters").innerHTML = "</br>";
+    $("#newWord").val("");
     document.getElementById("lettersTried").innerText = "";
   }
 
